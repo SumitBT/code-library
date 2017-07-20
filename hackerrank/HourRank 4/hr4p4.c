@@ -1,0 +1,122 @@
+#include<stdio.h>
+int main()
+{
+int n;
+printf("Enter number of sticks\n");
+scanf("%d",&n);
+int ar[n],i,ar6[6],max=0,nmax=0,sum=0,count=0,ar4[4],id=0,sum6[6];
+printf("Enter lengths\n");
+for(i=0;i<=n-1;i++)
+{
+	scanf("%d",&ar[i]);
+}
+int j,k,l,m,o,p,q;
+for(j=0;j<=n-1;j++)
+{
+  for(k=0;k<=n-1;k++)
+  {    
+    if(k!=j)
+    { 
+      for(l=0;l<=n-1;l++)
+      {
+      	if(l!=k&&l!=j)
+      	{
+          for(m=0;m<=n-1;m++)
+          {
+          	if(m!=l&&m!=k&&m!=j)
+          	{
+              for(o=0;o<=n-1;o++)
+              {
+              	if(o!=m&&o!=l&&o!=k&&o!=j)
+              	{
+	              for(p=0;p<=n-1;p++)
+	              {
+                    if(p!=o&&p!=m&&p!=l&&p!=k&&p!=j)
+                    {
+                       ar6[0]=ar[j];
+                       ar6[1]=ar[k];
+                       ar6[2]=ar[l];
+                       ar6[3]=ar[m];
+                       ar6[4]=ar[o];
+                       ar6[5]=ar[p];
+                       for(i=0;i<=5;i++)
+                       {
+                        if(ar6[i]>max)
+                        {
+                          max=ar6[i];
+                        }
+                       }
+                       for(i=0;i<=5;i++)
+                       {
+                        if(ar6[i]==max)
+                        {
+                          nmax++;
+                        }
+                       }
+                       if(nmax<2)
+                       {
+                        continue;
+                       }
+                       if(nmax>3)
+                       {
+                        continue;
+                       }
+                       if(nmax==3)
+                       {
+                        for(i=0;i<=5;i++)
+                        {
+                          if(ar6[i]!=max)
+                          {
+                            sum=sum+ar6[i];
+                          }
+                        }
+                        if(sum==max)
+                        {
+                          count++;
+                          continue;
+                        }
+                       }
+                      if(nmax==2)
+                      {
+                        for(i=0;i<=5;i++)
+                        {
+                          if(ar6[i]!=max)
+                          {
+                             ar4[id]=ar6[i];
+                             id++;
+                          }
+                        }
+                        id=0;
+                        for(i=0;i<=3;i++)
+                        {
+                          for(q=0;q<=3;q++)
+                            {
+                              if(q!=i)
+                              {
+                                sum6[id]=ar4[i]+ar4[q];
+                                id++;
+                               }
+                            }
+                        }
+                        for(i=0;i<=5;i++)
+                        {
+                          if(sum6[i]==max)
+                          {
+                            count++;
+                          }
+                        }
+                      } 
+                    }
+	              }
+                }	
+              }	
+            }	
+          }
+        }
+      }
+    }
+  }
+}  
+printf("%d",count);   
+	return 0;
+}
