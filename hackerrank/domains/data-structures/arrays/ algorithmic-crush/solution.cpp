@@ -1,0 +1,43 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    long int N,K,p,q,sum,i,j,max=0,x=0;
+
+    cin>>N>>K;
+    long int *a=new long int[N+1]();
+
+    for(i=0;i<K;i++)
+    {
+        cin>>p>>q>>sum;
+        a[p]+=sum;
+        if((q+1)<=N) a[q+1]-=sum;
+    }
+
+    for(i=1;i<=N;i++)
+    {
+       x=x+a[i];
+       if(max<x) max=x;
+
+    }
+
+    cout<<max;
+    return 0;
+}
+
+/*
+
+Instead of storing the actual values in the array, you store 
+the difference between the current element and the previous element.
+So you add sum to a[p] showing that a[p] is greater than its previous element by sum.
+You subtract sum from a[q+1] to show that a[q+1] is less than a[q] by 
+sum (since a[q] was the last element that was added to sum). By the end of all this, 
+you have an array that shows the difference between every successive element. 
+By adding all the positive differences, you get the value of the maximum element
+
+*/
