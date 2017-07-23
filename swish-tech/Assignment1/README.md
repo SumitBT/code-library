@@ -1,1 +1,0 @@
-for setting up the project and use cases follow this [link](https://drive.google.com/open?id=1UtAIvngWXtfC9wpepkzpIUIsIb5U70uU5H7XZzxEuBk)
