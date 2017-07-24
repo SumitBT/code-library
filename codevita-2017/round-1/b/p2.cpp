@@ -20,12 +20,12 @@ int factorial(unsigned int n)
     }
     return f[n];
 }
-int rank(char *str, int n)
+int rank(char *str)
 {
-    int result=0;
+    int result=0,count;
     for(int i=0;i<9;i++)
     {
-        int count=0;
+        count=0;
         for(int j=i+1;j<10;j++)
             if(str[i]>str[j])
                 count++;
@@ -43,7 +43,7 @@ int main()
     for(int i=0;i<t;i++)
     {
         scanf("%s",a);
-        ans*=rank(a,10);
+        ans*=rank(a);
     }
     cout<<ans%23456;
     return 0;
